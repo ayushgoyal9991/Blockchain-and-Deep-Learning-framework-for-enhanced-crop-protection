@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crop Disease Prediction</title>
+    </head>
+    
+<!-- Adding styles like colour, height, width, border to our html page -->
+<style>
+
+
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-weight: bolder;
+}
+
+input[type=submit] {
+  width: 80%;
+  background-color: #F0BB62;
+  color:black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:100;
+  font-weight: bolder;
+}
+
+
+input[type=submit]:hover {
+  background-color: #F2BC98;
+}
+form{
+    border-radius: 10px;
+    padding-top: 5%;
+    font-weight: bolder;
+}
+div {
+ 
+  border-radius: 5px;
+  margin-left: 35%;
+  width: 30%;
+  
+}
+h1{
+    color: #FF5403;
+    font-size: 40px;
+    font-weight: bolder;
+}
+h3{
+  color: black;
+}
+
+body {
+  font-family:Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  
+  background-image: url("https://freedesignfile.com/upload/2016/10/Green-meadow-with-blurred-sunny-background-HD-picture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 0px;
+}
+
+.prediction{
+  width: 600px;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  background-color: #E6E6FA;
+  margin: 20px auto;
+}
+
+.redirect{
+  width: 600px;
+  font-size: 20px;
+  color: black;
+  background-color: #E6E6FA;
+  margin: 20px auto;
+} 
+table, th, td {
+        border: 1px solid black;
+        background-color: white;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+
+<div>
+  
+  <form action="{{ url_for('predict')}}" method="post" style="background-color:#E6E6FA">
+
+  <label for="Image">Crop Image</label><br>
+  <input type="file" id="image" name="image" required="required"><br>
+
+  <label>Account Address</label>
+  <input type="text" name="address" id="address" required="required"><br>
+
+   <label>Private Key</label>
+  <input type="text" name="private_key" id="private_key" required="required"> 
+         
+  <input type="submit" value="Pay and Predict Disease">
+  </form>
+</div>
+    
+<!-- the predicted text -->
+<div class="prediction">
+  {{ prediction_text }}
+</div>
+
+<div class="redirect">
+  <a href="{{ url_for('accessall') }}">Head over here to find solution using disease id</a>
+</div>
+<table>
+      <tr>
+        <th>Disease Id</th>
+        <th>Disease</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>Aphids</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Armyworm</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Beetle</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bolloworm</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Grasshopper</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Mites</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Mosquito</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Sawfly</td>
+      </tr><tr>
+        <td>8</td>
+        <td>Stem borer</td>
+      </tr>
+    </table> 
+<!--<img src={{ image }} alt="Italian Trulli"> -->
+
+</body>
+</html>

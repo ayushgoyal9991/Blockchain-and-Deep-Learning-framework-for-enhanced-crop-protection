@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crop Disease Prediction</title>
+        <script src="accessall.js" defer></script>
+    </head>
+
+    <style>
+
+    input[type=text], select {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-weight: bolder;
+    }
+
+    input[type=submit] {
+      background-color: #F0BB62;
+      color:black;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size:100;
+      font-weight: bolder;
+    }
+
+    .new_button{
+      background-color: #F0BB62;
+      color:black;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size:100;
+      font-weight: bolder;
+    }
+
+    input[type=submit]:hover {
+      background-color: #F2BC98;
+    }
+    form{
+        padding: 7px;
+        width: 380px;
+        height: 20px;
+        border-radius: 10px;
+        font-weight: 700;
+    }
+    div {
+     
+      border-radius: 5px;
+      margin-left: 35%;
+      width: 30%;
+      
+    }
+    h1{
+        color: #FF5403;
+        font-size: 40px;
+        font-weight: bolder;
+    }
+    h3{
+      color: black;
+    }
+
+    .solution{
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    body {
+        background-image: url("https://freedesignfile.com/upload/2016/10/Green-meadow-with-blurred-sunny-background-HD-picture.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    table, th, td {
+        border: 1px solid black;
+        background-color: white;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+           
+    </style>
+
+    <body>
+
+
+     <table>
+      <tr>
+        <th>Disease Id</th>
+        <th>Disease</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>Aphids</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Armyworm</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Beetle</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bolloworm</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Grasshopper</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Mites</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Mosquito</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Sawfly</td>
+      </tr><tr>
+        <td>8</td>
+        <td>Stem borer</td>
+      </tr>
+    </table> 
+    <form action="{{ url_for('accessall')}}" method="post" style="background-color:#E6E6FA">
+
+    <label for="id">Enter Disease Id</label>
+    <input type="number" name="disease_id" required="required" min="1" max="1000">
+
+    <input type="submit" value="Check Solutions">
+    </form>  
+    <h3>{{ result }}</h3>
+    <!--<img src={{ image }} alt="Italian Trulli"> -->
+    <div class="solution">
+        {{befores}}
+        {{afters}}
+    </div>
+    <br> 
+    {% if available %}
+        <form action="{{ url_for('view')}}" method="post" style="background-color:#E6E6FA">
+        <label for="id">Enter Solution Index</label><br><br>
+        <input type="number" name="solution_index" required="required" min="1" max="1000"><br>
+        <label for="id">Account number</label>
+        <input type="text" name="address" required="required"><br>
+        <label for="id">Private Key</label><br>
+        <input type="text" name="private_key" required="required"><br>
+        <input type="submit" value="Pay and View Solution">
+        </form>
+    {% endif %}
+    </body>
+
+</html>

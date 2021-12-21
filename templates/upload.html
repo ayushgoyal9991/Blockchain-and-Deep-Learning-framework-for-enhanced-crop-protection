@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crop Disease Prediction</title>
+    </head>
+    
+<!-- Adding styles like colour, height, width, border to our html page -->
+<style>
+
+
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-weight: bolder;
+}
+
+input[type=submit] {
+  width: 80%;
+  background-color: #F0BB62;
+  color:black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:100;
+  font-weight: bolder;
+}
+
+
+input[type=submit]:hover {
+  background-color: #F2BC98;
+}
+form{
+    border-radius: 10px;
+    padding-top: 5%;
+    font-weight: bolder;
+}
+div {
+ 
+  border-radius: 5px;
+  margin-left: 35%;
+  width: 30%;
+  
+}
+h1{
+    color: #F5F5F5;
+    font-size: 40px;
+    font-weight: bolder;
+}
+h3{
+  color: black;
+}
+
+.table{
+  display: flex;
+}
+body {
+            
+            background-image: url("https://freedesignfile.com/upload/2016/10/Green-meadow-with-blurred-sunny-background-HD-picture.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 0px;
+        }
+table, th, td {
+        margin-top: 20px;
+        border: 1px solid black;
+        background-color: white;
+    }
+</style>
+
+<body>
+
+
+<div>
+  
+  <form action="{{ url_for('upload')}}" method="post" style="background-color:#E6E6FA">
+
+  <label>Account Address</label>
+  <input type="text" name="address" > <br>
+
+  <label>Private key</label>
+  <input type="text" name="private_key" > <br>
+
+  <label>Disease Id</label><br>
+  <input type="number" name="disease_id" ><br>
+
+  <label for="Image">Before Pic</label><br>
+  <input type="file" id="image" name="before" required="required"><br>
+
+  <label for="Image">After Pic</label><br>
+  <input type="file" id="image" name="after" required="required"><br>
+
+  <label>Text</label><br>
+  <textarea name="text" cols="40" rows="6" required></textarea>
+
+  <input type="submit" value="Upload Solution">
+  </form>
+</div>
+
+<!-- the predicted text -->
+<h3>{{ result }}</h3>
+<!--<img src={{ image }} alt="Italian Trulli"> -->
+<div class="table">
+<table>
+      <tr>
+        <th>Disease Id</th>
+        <th>Disease</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>Aphids</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Armyworm</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Beetle</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Bolloworm</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Grasshopper</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Mites</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Mosquito</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Sawfly</td>
+      </tr><tr>
+        <td>8</td>
+        <td>Stem borer</td>
+      </tr>
+    </table> 
+</div>
+</body>
+</html>
